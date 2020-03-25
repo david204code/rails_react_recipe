@@ -26,14 +26,14 @@ class Recipes extends React.Component {
   render() {
     const { recipes } = this.state;
     const allRecipe = recipes.map((recipe, index) => (
-      <div key={index} className="">
-        <div className="">
+      <div key={index} className="col-md-6 col-lg-4">
+        <div className="card mb-4">
           <img
           src={recipe.image}
           className="card-img-top"
           alt={`${recipe.name} image`}  
           />
-          <div>
+          <div className="card-body">
             <h5 className="">{recipe.name}</h5>
             <Link to={`/recipe/${recipe.id}`} className="">
               View Recipe
@@ -44,36 +44,36 @@ class Recipes extends React.Component {
     ));
 
     const noRecipe = (
-      <div className="">
+      <div className="vw-100 vh-50 d-flex align-items-center justify-content-center">
         <h4 className="">
-          No recipes yet. Why not <Link to="/new_recipe"></Link>
+          No recipes yet. Why not <Link to="/new_recipe">create one</Link>
         </h4>
       </div>
     );
 
     return(
       <>
-        <section className="">
-          <div className="">
-            <h1 className=""></h1>
-            <p className="">
+        <section className="jumbotron jumbotron-fluid text-center">
+          <div className="container py-5">
+            <h1 className="display-4">Recipes for every occassion</h1>
+            <p className="lead text-muted">
               We've pulled together our most popular recipes, our latest additions, 
               and our editor's picks, so there's sure to be something tempting for 
               you to try.
             </p>
           </div>
         </section>
-        <div className="">
-          <main className="">
-            <div className="">
-              <Link to="/recipe" className="">
+        <div className="py-5">
+          <main className="container">
+            <div className="text-right mb-3">
+              <Link to="/recipe" className="btn custom-button">
                 Create New Recipe
               </Link>
             </div>
-            <div className=""> 
+            <div className="row"> 
               {recipes.length > 0 ? allRecipe : noRecipe}
             </div>
-            <Link to="/" className="">
+            <Link to="/" className="btn btn-link">
               Home
             </Link>
           </main>
