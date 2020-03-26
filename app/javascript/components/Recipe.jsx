@@ -31,6 +31,12 @@ class Recipe extends React.Component {
       .catch(() => this.props.history.push("/recipe"));
   }
 
+  addHtmlEntities(str) {
+    return String(str)
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">");
+  }
+
 }
 
 export default Recipe;
