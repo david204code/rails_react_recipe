@@ -10,6 +10,27 @@ class Recipe extends React.Component {
 
     this.addHtmlEntities = this.addHtmlEntities.bind(this);
   }
+
+  componentDidMount() {
+    const {
+      match: {
+        params: { id }
+      }
+    } = this.props;
+
+    const url = `/api/v1/show/${id}`;
+
+    fetch(url)
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Network response was not ok.");
+      })
+      .then(response => this.setState({ recipe: response }))
+      .catch(() => this.props.history.push("/recipe"));
+  }
+
 }
 
 export default Recipe;
