@@ -37,6 +37,24 @@ class Recipe extends React.Component {
       .replace(/&gt;/g, ">");
   }
 
+  render() {
+    const { recipe } = this.state;
+    let ingredientList = "No ingredients avaiable";
+
+    if (recipe.ingredients.length > 0 ) {
+      ingredientList = recipe.ingredients
+        .split(",")
+        .map((ingredient, index) => (
+          <li key ={index} className = "">
+            {ingredient}
+          </li>
+        ));
+    }
+
+    
+
+  }
+
 }
 
 export default Recipe;
