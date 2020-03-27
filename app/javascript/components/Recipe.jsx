@@ -50,9 +50,50 @@ class Recipe extends React.Component {
           </li>
         ));
     }
+    const recipeInstruction = this.addHtmlEntities(recipe.instruction);
 
-    
+    return (
+      <div className ="">
+        <div className =""> 
+          <img
+            src ={recipe.image}
+            alt ={`${recipe.name} image`}
+            className =""
+          />  
 
+          <div className ="" />
+          <h1 className ="">
+            {recipe.name}
+          </h1>
+        </div>
+        <div className ="">
+          <div className ="">
+            <div className ="">
+              <ul className ="">
+                <h5 className ="">ingredients</h5>
+                {ingredientList}
+              </ul>
+            </div>
+            <div className ="">
+              <h5 className ="">instructions</h5>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: `${recipeInstruction}`
+                }}
+              />  
+            </div>
+            <div className = "">
+              <button type ="button" className ="">
+                Delete Recipe
+              </button>
+            </div>
+          </div>
+          <Link to ="/recipes" className ="">
+            Back to recipes
+          </Link>
+        </div>
+      </div>
+    );
   }
 
 }
