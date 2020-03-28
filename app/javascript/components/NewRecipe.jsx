@@ -58,6 +58,62 @@ class NewRecipe extends React.Component {
       .catch(error => console.log(error.message));
   }
 
+  render() {
+    return (
+      <div className = "">
+        <div className = "">
+          <div className = "">
+            <h1>
+              Add a new recipe to our awesome recipe collection.
+            </h1>
+            <form onSubmit ={this.onSubmit}>
+              <div className ="">
+                <label htmlFor="recipeName">Recipe name</label>
+                <input
+                  type ="text"
+                  name ="name"
+                  id ="recipeName"
+                  className =""
+                  required
+                  onChange ={this.onChange}
+                />
+              </div>
+              <div className ="">
+                <label htmlFor="recipeIngredients">Ingredients</label>
+                <input
+                  type ="text"
+                  name ="ingredients"
+                  id ="recipeIngredients"
+                  className =""
+                  required
+                  onChange ={this.onChange}
+                />
+                <small id ="" className ="">
+                  Seperate each ingredient with a coma.
+                </small>
+              </div>
+              <label htmlFor="instruction">Preparation Instructions</label>
+              <textarea
+                className =""
+                id ="instruction"
+                name ="instruction"
+                rows ="5"
+                required
+                onChange ={this.onChange}
+              />
+              <button type ="submit" className ="">
+                Create Recipe
+              </button>
+              <Link to ="/recipes" className ="">
+                Back to recipes
+              </Link>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
 }
 
 export default NewRecipe;
